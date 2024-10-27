@@ -1,0 +1,116 @@
+/* ==============================
+   Variabili
+   ============================== */
+   :root {
+    --black: #171321;
+    --dkblue: #0d314b;
+    --plum: #4b0d49;
+    --hotmag: #ff17e4;
+    --magenta: #e310cb;
+    --aqua: #86fbfb;
+    --white: #f7f8fa;
+  
+    --color1: #9F84D9; 
+    --color2: #252273; 
+    --color3: #1E28D9; 
+    --color4: #262DA6; 
+    --color5: #D9D4D2; 
+  
+    --font-size: 1.3rem;
+    --mono: "Oxygen mono", monospace;
+    --sans: Oxygen, sans-serif;
+    --Tek: Teko;
+    --font-montserrat: Montserrat;
+    --font1-nunino: Nunito;
+    --font2-nunino-sans: Nunito+Sans;
+    --font3-handlee: Handlee;
+  }
+  
+  /* ==============================
+     Global Styling Enhancements
+     ============================== */
+  html {
+    scroll-behavior: smooth; /* Adds smooth scrolling to anchor links */
+    box-sizing: border-box; /* Sets box-sizing to border-box for all elements */
+  }
+  
+  /* Basic Reset */
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; /* Inherits box-sizing from html */
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: var(--font1-nunino); /* Uses custom font */
+    font-size: 1.1rem; /* Adjusted for better readability */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f4f4; /* Background color */
+    color: #333; /* Text color */
+  }
+  
+  /* ==============================
+     Navbar Styling
+     ============================== 
+  
+     */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem; 
+    font-family: var(--font3-handlee);
+    height: 60px;
+  }
+  
+  .navbar .brand {
+    text-align: center;
+    font-size: 2rem;
+    background: linear-gradient(to right, var(--color1), var(--color4));
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: bold;
+  }
+  .navbar .brand::first-letter {
+    font-size: 36px;
+    font-family: 'Brush Script MT', cursive;
+    display: inline-block;
+    color: var(--color1); 
+  }
+  .navbar .center-content {
+    display: flex;
+    align-items: center;
+    color: var(--color1); 
+    font-size: 30px;
+  }
+  
+  .navbar .center-content i {
+    margin-right: 30px; 
+  }
+  
+  .navbar .nav-items input[type="text"],
+  .navbar .nav-items input[type="password"],
+  .navbar .nav-items button {
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: var(--font3-handlee);
+    font-size: 14px;
+    height: 40px; 
+  }
+  
+  .navbar .nav-items input[type="text"]::placeholder,
+  .navbar .nav-items input[type="password"]::placeholder {
+    font-family: var(--font3-handlee);
+    font-size: 14px;
+  }
+ 

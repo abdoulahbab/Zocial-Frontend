@@ -1,0 +1,76 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+    // Initialize error messages for each field
+    String usernameError = "";
+    String emailError = "";
+    String passwordError = "";
+    String dataDiNascitaError = "";
+
+    // Check if the form has been submitted
+    if ("POST".equalsIgnoreCase(request.getMethod())) {
+        // Retrieve form data
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String dataDiNascita = request.getParameter("dataDiNascita");
+
+        // Validate each field
+        if (username == null || username.trim().isEmpty()) {
+            usernameError = "Username is required.";
+        }
+        if (email == null || email.trim().isEmpty()) {
+            emailError = "Email is required.";
+        }
+        if (password == null || password.trim().isEmpty()) {
+            passwordError = "Password is required.";
+        }
+        if (dataDiNascita == null || dataDiNascita.trim().isEmpty()) {
+            dataDiNascitaError = "Date of birth is required.";
+        }
+
+        // If there are no errors, proceed with registration
+        if (usernameError.isEmpty() && emailError.isEmpty() && passwordError.isEmpty() && dataDiNascitaError.isEmpty()) {
+            // Redirect to a success or welcome page (or forward to a servlet for further processing)
+            response.sendRedirect("welcome.jsp");
+        }
+    }
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+</head>
+<body>
+    <h2>User Registration</h2>
+    <form action="register.jsp" method="post">
+        <!-- Username Field -->
+        <label for="username">Username:</label>
+        <input type="text" name="username" value="<%= request.getParameter("username") != null ? request.getParameter("username") : "" %>">
+        <span style="color:red;"><%= usernameError %></span>
+        <br><br>
+
+        <!-- Email Field -->
+        <label for="email">Email:</label>
+        <input type="email" name="email" value="<%= request.getParameter("email") != null ? request.getParameter("email") : "" %>">
+        <span style="color:red;"><%= emailError %></span>
+        <br><br>
+
+        <!-- Password Field -->
+        <label for="password">Password:</label>
+        <input type="password" name="password">
+        <span style="color:red;"><%= passwordError %></span>
+        <br><br>
+
+        <!-- Date of Birth Field -->
+        <label for="dataDiNascita">Date of Birth:</label>
+        <input type="date" name="dataDiNascita" value="<%= request.getParameter("dataDiNascita") != null ? request.getParameter("dataDiNascita") : "" %>">
+        <span style="color:red;"><%= dataDiNascitaError %></span>
+        <br><br>
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

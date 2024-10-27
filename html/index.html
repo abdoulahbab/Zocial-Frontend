@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zocial - Home</title>
+    <link rel="stylesheet" href="style2.css">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+    <!-- Main Section -->
+    <div class="main-section">
+        <!-- Registration Form -->
+        <aside class="aside-sidebar" id="registration-form" style="display: none;">
+            <h2>Sign In</h2>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="es.john" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="es.dow"required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="******"required>
+                <button type="submit">Register</button>
+            </form>
+        </aside>
+        <!-- Password Recovery Form (Initially Hidden) -->
+        <aside class="aside-sidebar" id="password-recovery-form" >
+            <h2>Recover Password</h2>
+            <form onsubmit="handlePasswordRecovery(event)">
+                <p>Please enter your email to recover your password.</p>
+                <label for="recovery-email">Email:</label>
+                <input type="email" id="recovery-email" name="recovery-email" placeholder="your.email@example.com" required>
+                <button type="submit">Submit</button>
+            </form>
+        </aside>
+   
+        <!-- Card Section -->
+        <section class="card-section">
+            <div class="card"></div>
+            <div id="footer-placeholder"></div>
+        </section>
+    </div>
+        
+    <!-- Footer -->
+    <script>
+        // Function to load HTML content
+        function loadHTML(url, elementId) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                });
+        }
+        // Load navbar and footer
+        loadHTML('navbar.html', 'navbar-placeholder');
+        loadHTML('footer.html', 'footer-placeholder');
+        // Show registration form on "Sign In" click
+        function showRegistrationForm() {
+            document.getElementById('password-recovery-form').style.display = 'none';
+            document.getElementById('registration-form').style.display = 'block';
+        }
+        // Handle login submission
+        function handleLogin(event) {
+            event.preventDefault();
+            // Simulate login failure
+            const loginSuccessful = false; // This should be replaced with actual login logic
+
+            if (!loginSuccessful) {
+                document.getElementById('registration-form').style.display = 'none';
+                document.getElementById('password-recovery-form').style.display = 'block';
+            }
+        }
+
+        // Handle password recovery submission
+        function handlePasswordRecovery(event) {
+            event.preventDefault();
+            // Simulate password recovery logic
+            alert("Password recovery instructions have been sent to your email.");
+        }
+        
+    </script>
+</body>
+</html>

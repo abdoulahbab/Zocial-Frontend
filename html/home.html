@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zocial App Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="brand">Zocial</div>
+        <div class="center-content">
+            <i class="fa-solid fa-frog custom-bounce"></i>
+            <span>Benvenuto alla tua area...</span>
+        </div>
+        <div class="profile-pic">
+            <img src="img.jpg" alt="Profile Pic" onclick="showModal('profileModal')">
+        </div>
+    </header>
+
+    <!-- Main Grid Layout -->
+    <div class="main-grid">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search for users...">
+            </div>
+            <button class="sidebar-btn" onclick="showModal('createPostModal')"><i class="fas fa-pencil-alt"></i> Create Post</button>
+            <button class="sidebar-btn"><i class="fas fa-chart-bar"></i> View Stats</button>
+            <button class="sidebar-btn" onclick="showModal('logoutModal')"><i class="fa-solid fa-power-off"></i> Logout</button>
+        </aside>
+
+        <!-- Post Feed -->
+        <section class="post-feed">
+            <!-- Post Cards -->
+            <div class="post-card">
+                <h3>Post Title 1</h3>
+                <p>Posted by User1 on Oct 15, 2024</p>
+                <p>This is the content of the post. It's a brief description of the user's post.</p>
+                <div class="post-actions">
+                    <button class="like-btn"><i class="fas fa-heart"></i> Like</button>
+                    <button class="unlike-btn"><i class="fas fa-thumbs-down"></i> Unlike</button>
+                    <button class="comment-btn"><i class="fas fa-comment"></i> Comment</button>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <h3>Post Title 2</h3>
+                <p>Posted by User2 on Oct 12, 2024</p>
+                <p>Another user's post with some interesting content here. Users can interact with it.</p>      
+                <div class="post-actions">
+                    <button class="like-btn"><i class="fas fa-heart"></i> Like</button>
+                    <button class="unlike-btn"><i class="fas fa-thumbs-down"></i> Unlike</button>
+                    <button class="comment-btn"><i class="fas fa-comment"></i> Comment</button>
+                </div>
+            </div>
+            <div class="post-card">
+                <h3>Post Title 2</h3>
+                <p>Posted by User2 on Oct 12, 2024</p>
+                <p>Another user's post with some interesting content here. Users can interact with it.</p>      
+                <div class="post-actions">
+                    <button class="like-btn"><i class="fas fa-heart"></i> Like</button>
+                    <button class="unlike-btn"><i class="fas fa-thumbs-down"></i> Unlike</button>
+                    <button class="comment-btn"><i class="fas fa-comment"></i> Comment</button>
+                </div>
+            </div>
+            
+            <div class="post-card">
+                <h3>Post Title 2</h3>
+                <p>Posted by User2 on Oct 12, 2024</p>
+                <p>Another user's post with some interesting content here. Users can interact with it.</p>      
+                <div class="post-actions">
+                    <button class="like-btn"><i class="fas fa-heart"></i> Like</button>
+                    <button class="unlike-btn"><i class="fas fa-thumbs-down"></i> Unlike</button>
+                    <button class="comment-btn"><i class="fas fa-comment"></i> Comment</button>
+                </div>
+            </div>
+            
+            
+            
+        </section>
+    </div>
+
+    <!-- Modals -->
+    <div id="createPostModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('createPostModal')">&times;</span>
+            <h2>Create Post</h2>
+            <form>
+                <label for="postText">Text:</label>
+                <textarea id="postText" name="postText" required></textarea>
+                <label for="postImage">Image:</label>
+                <input type="file" id="postImage" name="postImage">
+                <button type="submit">Publish</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('logoutModal')">&times;</span>
+            <h2>Logout</h2>
+            <p>Are you sure you want to logout?</p>
+            <button onclick="logout()">Yes</button>
+            <button onclick="closeModal('logoutModal')">No</button>
+        </div>
+    </div>
+
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('profileModal')">&times;</span>
+            <h2>Profile Image</h2>
+            <img src="img.jpg" alt="Profile Pic" style="width: 100%;">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="brand">
+            <span class="brand-text">Zocial</span>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2024 Zocial, Inc.</p>
+        </div>
+        
+        <div class="footer-links">
+            <a href="#">kathereen Espiritu</a>
+            <a href="#">Alessando Stronati</a>
+            <a href="#">Abdo Elhabbab</a>
+            <a href="#">Alfredo Cookies</a>
+            <a href="#">Roberto Cookies</a>
+        </div>
+    </footer>
+
+    <script>
+        // Function to show modal
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        // Function to close modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Function to logout
+        function logout() {
+            // Add logout functionality here
+            closeModal('logoutModal');
+        }
+
+        // Close modals when clicking outside of them
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
